@@ -1,0 +1,51 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Ocean"
+run/main_scene="res://MainScene.tscn"
+config/features=PackedStringArray("4.4", "Double Precision", "Forward Plus")
+config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SphereFormsPlugin/plugin.cfg")
+
+[rendering]
+
+rendering_device/fallback_to_vulkan=false
+
+[shader_globals]
+
+num_cascades={
+"type": "uint",
+"value": 4
+}
+normals={
+"type": "sampler2DArray",
+"value": ""
+}
+water_color={
+"type": "color",
+"value": Color(0.113256, 0.237973, 0.249157, 1)
+}
+foam_color={
+"type": "color",
+"value": Color(0.491905, 0.406448, 0.342392, 1)
+}
+displacements={
+"type": "sampler2DArray",
+"value": ""
+}
+sphere_radius={
+"type": "int",
+"value": 0
+}

@@ -1,0 +1,166 @@
+[gd_scene load_steps=21 format=4 uid="uid://csboyqhgd4y48"]
+
+[ext_resource type="Shader" path="res://assets/shaders/spatial/sea_spray_particle.gdshader" id="1_etvwo"]
+[ext_resource type="Script" path="res://assets/GDScript/CelestialBody.gd" id="2_wra4x"]
+[ext_resource type="Script" path="res://assets/GDScript/PlanetGenerator.gd" id="3_i7vhs"]
+[ext_resource type="Shader" path="res://assets/shaders/spatial/planet_water.gdshader" id="4_ae6qm"]
+[ext_resource type="Script" path="res://assets/GDScript/Ocean.gd" id="5_vwmpw"]
+[ext_resource type="Script" path="res://assets/GDScript/wave_cascade_parameters.gd" id="6_img0e"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_faqpt"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_0bq58"]
+sky_material = SubResource("ProceduralSkyMaterial_faqpt")
+
+[sub_resource type="Environment" id="Environment_ig0xk"]
+background_mode = 2
+sky = SubResource("Sky_0bq58")
+tonemap_mode = 2
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_hfbmo"]
+radius = 270.0
+height = 540.0
+
+[sub_resource type="PlaceholderMaterial" id="PlaceholderMaterial_vc5dv"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i7jtp"]
+blend_shape_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_3jtxa"]
+radius = 996.6
+height = 1993.2
+radial_segments = 2816
+rings = 1408
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_noi3p"]
+render_priority = 0
+shader = ExtResource("4_ae6qm")
+shader_parameter/roughness = 0.4
+shader_parameter/normal_strength = 1.0
+shader_parameter/map_scales = PackedVector4Array(0.02, 0.02, 0.137, 1, 0.02, 0.02, 1, 1, 0.02, 0.02, 1, 1)
+shader_parameter/moon_position = Vector3(-354.86, 0, 4987.39)
+shader_parameter/planet_position = Vector3(0, 0, 0)
+shader_parameter/planet_radius = 996.6
+shader_parameter/tidal_strength = 1.0
+shader_parameter/enable_tides = true
+
+[sub_resource type="Resource" id="Resource_uogls"]
+script = ExtResource("6_img0e")
+tile_length = Vector2(50, 50)
+displacement_scale = 0.137
+normal_scale = 1.0
+wind_speed = 20.0
+wind_direction = 0.0
+fetch_length = 100.0
+swell = 0.8
+spread = 0.2
+detail = 1.0
+whitecap = 0.5
+foam_amount = 5.0
+
+[sub_resource type="Resource" id="Resource_8e3d8"]
+script = ExtResource("6_img0e")
+tile_length = Vector2(50, 50)
+displacement_scale = 1.0
+normal_scale = 1.0
+wind_speed = 5.0
+wind_direction = 0.0
+fetch_length = 10.0
+swell = 0.8
+spread = 0.2
+detail = 1.0
+whitecap = 0.683
+foam_amount = 5.0
+
+[sub_resource type="Resource" id="Resource_ewrjf"]
+script = ExtResource("6_img0e")
+tile_length = Vector2(50, 50)
+displacement_scale = 1.0
+normal_scale = 1.0
+wind_speed = 4.0
+wind_direction = 0.0
+fetch_length = 550.0
+swell = 0.8
+spread = 0.2
+detail = 1.0
+whitecap = 0.5
+foam_amount = 7.484
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ua1cd"]
+shader = ExtResource("1_etvwo")
+shader_parameter/num_particles = 500
+shader_parameter/particle_scale = Vector3(0, 0.31, 0)
+shader_parameter/lifetime = 3.0
+shader_parameter/lifetime_randomness = 0.25
+shader_parameter/map_scales = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_eh6pq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4soet"]
+shader = ExtResource("1_etvwo")
+shader_parameter/num_particles = 330
+shader_parameter/particle_scale = Vector3(1, 1, 1)
+shader_parameter/lifetime = 3.0
+shader_parameter/lifetime_randomness = 0.25
+shader_parameter/map_scales = PackedVector4Array(0.51, 0.19, 0.245, 0, 0, 0, 0, 0)
+
+[node name="Ocean" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ig0xk")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -1.22465e-16, 0, 1, 0, 1.22465e-16, 0, -1, 0, 0, -1506.96)
+fov = 107.5
+far = 100000.0
+
+[node name="Moon" type="Node3D" parent="." node_paths=PackedStringArray("parent_body")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -354.86, 0, 4987.39)
+script = ExtResource("2_wra4x")
+parent_body = NodePath("../Planet/Water")
+orbit_radius = 5000.0
+orbit_speed = 0.003
+body_mesh = SubResource("SphereMesh_hfbmo")
+body_material = SubResource("PlaceholderMaterial_vc5dv")
+
+[node name="Planet" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.994456, 0, 0.105153, 0, 1, 0, -0.105153, 0, -0.994456, 0, 0, 0)
+top_level = true
+mesh = SubResource("ArrayMesh_i7jtp")
+script = ExtResource("3_i7vhs")
+
+[node name="Water" type="MeshInstance3D" parent="Planet" node_paths=PackedStringArray("planet_node", "moon")]
+transform = Transform3D(-0.994456, 0, -0.105153, 0, 1, 0, 0.105153, 0, -0.994456, 0, 0, 0)
+layers = 3
+gi_mode = 2
+gi_lightmap_scale = 3
+mesh = SubResource("SphereMesh_3jtxa")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_noi3p")
+script = ExtResource("5_vwmpw")
+planet_node = NodePath("..")
+water_color = Color(9.14484e-07, 0.484891, 0.512334, 1)
+mesh_quality = 2
+sphere_radius = 996.6
+sphere_subdivisions = 10
+parameters = Array[ExtResource("6_img0e")]([SubResource("Resource_uogls"), SubResource("Resource_8e3d8"), SubResource("Resource_ewrjf")])
+updates_per_second = 60.0
+moon = NodePath("../../Moon")
+
+[node name="SeaSpray" type="GPUParticles3D" parent="Planet"]
+transform = Transform3D(-0.994456, 0, -0.105153, 0, 1, 0, 0.105153, 0, -0.994456, 0, 0, 0)
+sub_emitter = NodePath(".")
+draw_order = 1
+process_material = SubResource("ShaderMaterial_ua1cd")
+draw_pass_1 = SubResource("SphereMesh_eh6pq")
+
+[node name="SprayMesh" type="MeshInstance3D" parent="Planet/SeaSpray"]
+material_override = SubResource("ShaderMaterial_4soet")
