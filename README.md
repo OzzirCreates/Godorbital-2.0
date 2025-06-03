@@ -4,9 +4,9 @@ Complete List of Cited Sources and Inspirations for Ocean Water System
 
 Everything was found openly on the internet. 
 
-Primary Ocean Wave Implementation
-
-GodotOceanWaves Repository
+**Primary Ocean Wave Implementation
+**
+**GodotOceanWaves Repository**
 
 Original: https://github.com/2Retr0/GodotOceanWaves
 Fork/Adaptation: https://github.com/krautdev/GodotOceanWaves
@@ -14,9 +14,9 @@ Tutorial Video: https://www.youtube.com/watch?v=waVAmgsC_4Q&t=14s
 
 
 
-Ocean Rendering and Wave Theory
+**Ocean Rendering and Wave Theory**
 
-"Wakes, Explosions and Lighting: Interactive Water Simulation in Atlas" (GDC 2019)
+**"Wakes, Explosions and Lighting: Interactive Water Simulation in Atlas" (GDC 2019)**
 
 Source: https://gpuopen.com/gdc-presentations/2019/gdc-2019-agtd6-interactive-water-simulation-in-atlas.pdf
 
