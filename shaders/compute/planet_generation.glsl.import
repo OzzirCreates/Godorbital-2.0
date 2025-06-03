@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://cc42fhcysxrlo"
+path="res://.godot/imported/planet_generation.glsl-f8e426a5e39b4b38c95f8f130e177bc5.res"
+
+[deps]
+
+source_file="res://assets/shaders/compute/planet_generation.glsl"
+dest_files=["res://.godot/imported/planet_generation.glsl-f8e426a5e39b4b38c95f8f130e177bc5.res"]
+
+[params]
+
