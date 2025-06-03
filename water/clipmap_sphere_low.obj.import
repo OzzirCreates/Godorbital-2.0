@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dreq8f5hikfj4"
+path="res://.godot/imported/clipmap_sphere_low.obj-1a1ae685ff570480b57e71de11b61017.mesh"
+
+[deps]
+
+files=["res://.godot/imported/clipmap_sphere_low.obj-1a1ae685ff570480b57e71de11b61017.mesh"]
+
+source_file="res://assets/water/clipmap_sphere_low.obj"
+dest_files=["res://.godot/imported/clipmap_sphere_low.obj-1a1ae685ff570480b57e71de11b61017.mesh", "res://.godot/imported/clipmap_sphere_low.obj-1a1ae685ff570480b57e71de11b61017.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

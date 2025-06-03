@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=4 uid="uid://5xqyddws6rt5"]
+
+[ext_resource type="Shader" path="res://assets/shaders/spatial/sea_spray_particle.gdshader" id="1_ibmit"]
+
+[resource]
+shader = ExtResource("1_ibmit")
+shader_parameter/num_particles = 0
+shader_parameter/particle_scale = null
+shader_parameter/lifetime = 0.995
+shader_parameter/lifetime_randomness = 0.173
+shader_parameter/map_scales = PackedVector4Array(0.02, 0.02, 0.137, 1, 0.02, 0.02, 1, 1, 0.02, 0.02, 1, 1)
