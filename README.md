@@ -1,3 +1,14 @@
+Current Tasks in progress: 
+1. Fix ocean mesh and terrain mesh clipping and z-fighting.
+2.  make the wave cascades start point editable. (currently only produces cascades that start at the north and south poles only. 
+3. procedural noise biome textures. no image textures unless i make then with noise from fastnoiselite
+4. erosion simulation on mountain terrain.
+5. integrate werner dune simulation to appear in desert landscapes
+6. colliders
+
+
+
+
 List of Cited Sources and Inspirations for Ocean Water System
 
 ***Still updating and not final***
