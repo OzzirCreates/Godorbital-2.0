@@ -1,4 +1,4 @@
-Complete List of Cited Sources and Inspirations for Ocean Water System
+List of Cited Sources and Inspirations for Ocean Water System
 
 ***Still updating and not final***
 
